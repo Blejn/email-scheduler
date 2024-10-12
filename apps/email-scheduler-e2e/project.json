@@ -1,0 +1,9 @@
+{
+  "name": "email-scheduler-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/email-scheduler-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["email-scheduler"],
+  "// targets": "to see all targets run: nx show project email-scheduler-e2e --web",
+  "targets": {}
+}
