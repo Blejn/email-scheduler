@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@org/libs": ["libs/src/index.ts"],
+      "@org/shared": ["libs/src/index.ts"],
       "@shared": ["apps/src/index.ts"]
     }
   },
