@@ -5,6 +5,7 @@ import { CreatePostRequestDto } from './request';
 import { Post } from './entities/post.entity';
 import { GetPostResponseDto } from './response/get-post-response.dto';
 import { UpdatePostRequestDto } from './request/update-post-request.dto';
+import { GetFilterPostsRequestDto } from './request/get-filter-posts-request.dto';
 
 @Injectable()
 export class PostsService {
@@ -35,8 +36,11 @@ export class PostsService {
     },
   ];
 
-  getAllPosts() {
-    return this.posts;
+  getAllPosts(filter?: GetFilterPostsRequestDto) {
+    if (!filter) {
+      return this.posts;
+    }
+    return this.posts.filter((post) => post.genre === filter.genre);
   }
 
   createPost(post: CreatePostRequestDto): Post {
