@@ -1,6 +1,6 @@
 import { MusicGenre } from '@org/shared';
 
-export interface Post {
+export class GetPostResponseDto {
   id: string;
   title: string;
   content: string;
