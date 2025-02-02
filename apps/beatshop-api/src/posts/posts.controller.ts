@@ -6,10 +6,15 @@ import {
   Delete,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
 import { PostsService } from './posts.service';
 import { Post as PostType } from './entities/post.entity';
-import { CreatePostRequestDto, UpdatePostRequestDto } from './request';
+import {
+  CreatePostRequestDto,
+  GetFilterPostsRequestDto,
+  UpdatePostRequestDto,
+} from './request';
 import { GetPostResponseDto } from './response/get-post-response.dto';
 
 @Controller('posts')
@@ -17,8 +22,8 @@ export class PostsController {
   constructor(private readonly postsService: PostsService) {}
 
   @Get()
-  getAllPosts(): PostType[] {
-    return this.postsService.getAllPosts();
+  getAllPosts(@Query() filter?: GetFilterPostsRequestDto): PostType[] {
+    return this.postsService.getAllPosts(filter);
   }
 
   @Post()

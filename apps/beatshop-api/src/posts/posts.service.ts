@@ -40,6 +40,17 @@ export class PostsService {
     if (!filter) {
       return this.posts;
     }
+    let posts = this.posts;
+    if (filter.genre) {
+      posts = posts.filter((post) => post.genre === filter.genre);
+    }
+    if (filter.title) {
+      posts = posts.filter((post) => post.title === filter.title);
+    }
+    return posts;
+  }
+
+  getAllFilteredPosts(filter: GetFilterPostsRequestDto) {
     return this.posts.filter((post) => post.genre === filter.genre);
   }
 
